@@ -1,0 +1,21 @@
+
+version: '3.8'
+
+services:
+  php-nginx:
+    build: .
+    image: app-service
+    container_name: app-service
+    ports:
+      - "8080:80"
+    environment:
+      - TZ=Europe/Moscow
+    restart: unless-stopped
+    volumes:
+      - ./src:/opt/www
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
