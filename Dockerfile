@@ -8,6 +8,7 @@ COPY ./src /opt/www
 
 RUN apk update && apk upgrade && \
     apk add --no-cache nginx && \
+    apk add composer && \
     mkdir -p /run/nginx && \
     mkdir -p /var/tmp/nginx
 
